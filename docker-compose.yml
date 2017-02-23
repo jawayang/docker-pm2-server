@@ -1,6 +1,12 @@
 version: "2"
 services:
-    web:
+    ReactServer:
+        container_name:ReactServer
+        image: james/react-server
+        build: ./reactWebServer
+        ports:
+            -
+    PDFServer:
         container_name: PDFServer
         image: james/node-pm2
         build: ./pdfServer
