@@ -6,15 +6,28 @@
 $ docker build -t james/pm2server .
 ```
 
-重新
+重新build
 ```
 $ docker build --rm -t james/pm2 .       
 ```
 
+直接執行 image
 ```
 $ docker run -it james/pm2
 ```
 
+# 使用 docker-compose
+## build image
+由於我們把設定都放在 docker-compose.yml 中，所以不需要額外的設定。
 ```
-$ docker run -p 80:3000 -v `pwd`/example_app:/app keymetrics/pm2-docker-alpine
+$ docker-compose build
+```
+
+執行 docker container
+```
+$ docker-compose up
+```
+ 進入 container bash
+```
+$ docker exec -it PDFServer /bin/bash
 ```

@@ -1,0 +1,20 @@
+version: "2"
+services:
+    web:
+        container_name: PDFServer
+        image: james/node-pm2
+        build: ./pdfServer
+        ports:
+            # 對外:對內
+        #   - 80:80
+        #   - 443:443
+          - 3001:3001
+        #   - 43554:43554
+        volumes:
+            # 對外:對內
+          - ~/projects/vita/practice/app:/www/app
+
+# docker-compose up
+# docker-compose up -d
+# docker-compose ps
+# docker-compose stop
