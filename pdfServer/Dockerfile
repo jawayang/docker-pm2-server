@@ -2,17 +2,17 @@
 
 # 第一條指令必須為 FROM 指令。並且，如果在同一個Dockerfile中建立多個映像檔時，
 # 可以使用多個 FROM 指令
-FROM mhart/alpine-node:7
+FROM node:6
 
 # 指定維護者訊息
 MAINTAINER James Yang
 
-RUN apk add --no-cache make gcc g++ python
-RUN apk add --update bash && rm -rf /var/cache/apk/*
-RUN mkdir /www
+# RUN apk add --no-cache make gcc g++ python
+# RUN apk add --update bash && rm -rf /var/cache/apk/*
 
+RUN mkdir /www
+RUN mkdir /www/app
 WORKDIR /www
-RUN mkdir /app
 
 # 格式為 RUN <command> 或 RUN ["executable", "param1", "param2"]。
 # 前者將在 shell 終端中運行命令, 後者則使用 exec 執行
@@ -34,7 +34,7 @@ VOLUME ["/www/app"]
 # EXPOSE 格式為 EXPOSE <port> [<port>...]
 # 設定 Docker 伺服器容器對外的埠號，供外界使用
 # 在啟動容器時需要透過 -P，Docker 會自動分配一個埠號轉發到指定的埠號
-EXPOSE  3001
+EXPOSE  3000
 
 # CMD 支援三種格式
 # CMD ["executable","param1","param2"] 使用 exec 執行，推薦使用；
