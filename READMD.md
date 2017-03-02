@@ -1,4 +1,18 @@
-# 學習Docker
+# For Vita 使用的 Docker Compose
+-----
+分成兩個 container
+一個是 PDFServer
+一個是 ReportServer
+
+對應兩個不同的資料夾
+
+分別是
+
+
+
+
+
+## 學習Docker
 
 從 dockerfile 建立 image
 ```

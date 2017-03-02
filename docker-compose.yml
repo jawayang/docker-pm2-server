@@ -1,21 +1,22 @@
 version: "2"
 services:
     ReactServer:
-        container_name:ReactServer
-        image: james/react-server
-        build: ./reactWebServer
+        container_name: ReportServer
+        image: james/report-server
+        build: ./ReportServer
         ports:
-            -
+            - 8081:3000
+        volumes:
+            # 對外:對內
+          - ~/projects/vita/react-starter-kit/build:/usr/src/app
+
     PDFServer:
         container_name: PDFServer
-        image: james/node-pm2
+        image: james/pdf-server
         build: ./pdfServer
         ports:
             # 對外:對內
-        #   - 80:80
-        #   - 443:443
-          - 3001:3001
-        #   - 43554:43554
+          - 8084:3000
         volumes:
             # 對外:對內
           - ~/projects/vita/practice/app:/www/app
